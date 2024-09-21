@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+
+module aluFlags_tb;
+
+    // Inputs
+    logic clk;
+    logic alu_out_temp;
+
+    // Outputs
+    logic negTemp;
+    logic zeroTemp;
+
+    // Instantiate the module
+    conditional_branch cb_inst(
+        .clk(clk),
+        .alu_out_temp(alu_out_temp),
+        .negTemp(negTemp),
+        .zeroTemp(zeroTemp)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk;
+
+    // Stimulus
+    initial begin
+        clk = 0;
+        alu_out_temp = 0;
+
+        // Test case 1: alu_out_temp < 0
+        #10;
+        alu_out_temp = -1;
+        #10;
+        if (alu_out_temp < 0) begin
+            if (negTemp !== 1 || zeroTemp !== 0)
+                $display("Test failed for alu_out_temp < 0");
+            else
+                $display("Test passed for alu_out_temp < 0");
+        end else begin
+            $display("Test failed for alu_out_temp >= 0");
+        end
+
+        // Test case 2: alu_out_temp >= 0
+        #10;
+        alu_out_temp = 0;
+        #10;
+        if (alu_out_temp >= 0) begin
+            if (negTemp !== 0 || zeroTemp !== 1)
+                $display("Test failed for alu_out_temp >= 0");
+            else
+                $display("Test passed for alu_out_temp >= 0");
+        end else begin
+            $display("Test failed for alu_out_temp < 0");
+        end
+
+        // End simulation
+        #10;
+        $finish;
+    end
+
+endmodule

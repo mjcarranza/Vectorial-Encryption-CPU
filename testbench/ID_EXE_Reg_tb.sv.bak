@@ -1,0 +1,86 @@
+`timescale 1ns / 1ps
+
+module ID_EXE_Reg_tb;
+    // Entradas del módulo
+    logic clk;
+    logic reset;
+    logic [31:0] pc_in;
+    logic [31:0] pc_plus2_in;
+    logic [31:0] op1_in;
+    logic [31:0] op2_in;
+    logic [4:0] rd_in;
+    logic [31:0] extend_in;
+
+    // Salidas del módulo
+    logic [31:0] pc_out;
+    logic [31:0] pc_plus2_out;
+    logic [31:0] op1_out;
+    logic [31:0] op2_out;
+    logic [4:0] rd_out;
+    logic [31:0] extend_out;
+
+    // Instancia del módulo a probar
+    ID_EXE_Reg dut (
+        .clk(clk),
+        .reset(reset),
+        .pc_in(pc_in),
+        .pc_plus2_in(pc_plus2_in),
+        .op1_in(op1_in),
+        .op2_in(op2_in),
+        .rd_in(rd_in),
+        .extend_in(extend_in),
+        .pc_out(pc_out),
+        .pc_plus2_out(pc_plus2_out),
+        .op1_out(op1_out),
+        .op2_out(op2_out),
+        .rd_out(rd_out),
+        .extend_out(extend_out)
+    );
+
+    // Generador de reloj
+    always #5 clk = ~clk;  // Periodo de reloj de 10 ns
+
+    // Procedimiento de inicialización y test
+    initial begin
+        // Inicialización de las señales
+        clk = 0;
+        reset = 1;
+        pc_in = 32'd0;
+        pc_plus2_in = 32'd2;
+        op1_in = 32'd100;
+        op2_in = 32'd200;
+        rd_in = 5'd10;
+        extend_in = 32'd300;
+
+        // Aplicar reset
+        #10;
+        reset = 0;
+
+        // Primer conjunto de entradas
+        #10;
+        pc_in = 32'd1;
+        pc_plus2_in = 32'd3;
+        op1_in = 32'd101;
+        op2_in = 32'd201;
+        rd_in = 5'd11;
+        extend_in = 32'd301;
+
+        // Segundo conjunto de entradas
+        #20;
+        pc_in = 32'd4;
+        pc_plus2_in = 32'd6;
+        op1_in = 32'd102;
+        op2_in = 32'd202;
+        rd_in = 5'd12;
+        extend_in = 32'd302;
+
+        // Re-activar el reset
+        #10 reset = 1;
+        #10 reset = 0;
+
+        // Continuar con más tests si es necesario
+        #30;
+        $finish;  // Termina la simulación
+    end
+
+endmodule

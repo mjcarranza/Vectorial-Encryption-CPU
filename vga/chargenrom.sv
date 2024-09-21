@@ -1,0 +1,17 @@
+ module chargenrom(input logic[7:0]ch,
+	 input logic[2:0]xoff,yoff,
+	 outputlogic pixel);
+	 
+	 logic[5:0]charrom[2047:0];//charactergeneratorROM
+	 logic[7:0]line; //alinereadfromtheROM
+	 
+	 //InitializeROMwithcharactersfromtextfile
+	 initial
+	 $readmemb("charrom.txt",charrom);
+	 //IndexintoROMtofindlineofcharacter
+	 
+	 assignline=charrom[yoff+{ch-65,3’b000}];//Subtract65becauseA
+	 //isentry0
+	 //Reverseorderofbits
+	 assignpixel=line[3’d7-xoff];
+ endmodule

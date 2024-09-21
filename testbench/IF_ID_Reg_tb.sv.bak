@@ -1,0 +1,84 @@
+`timescale 1ns / 1ps
+
+module IF_ID_Reg_tb;
+
+    // Inputs
+    logic clk;
+    logic reset;
+    logic [15:0] pc_in;
+    logic [15:0] pc_plus4_in;
+    logic [15:0] instruction_in;
+
+    // Outputs
+    logic [15:0] pc_out;
+    logic [15:0] pc_plus4_out;
+    logic [15:0] instruction_out;
+
+    // Instancia del módulo IF_ID_Reg
+    IF_ID_Reg uut (
+        .clk(clk), 
+        .reset(reset), 
+        .pc_in(pc_in), 
+        .pc_plus4_in(pc_plus4_in), 
+        .instruction_in(instruction_in), 
+        .pc_out(pc_out), 
+        .pc_plus4_out(pc_plus4_out), 
+        .instruction_out(instruction_out)
+    );
+
+    // Procedimiento para generar la señal de reloj
+    always begin
+        #5 clk = ~clk; // Ciclo de reloj de 10 ns
+    end
+
+    // Procedimiento inicial
+    initial begin
+        // Inicialización
+        clk = 0;
+        reset = 0;
+        pc_in = 0;
+        pc_plus4_in = 0;
+        instruction_in = 0;
+
+        // Espera para estabilizar
+        #10;
+        
+        // Simulación de reset
+        reset = 1;
+        #10;
+        reset = 0;
+        
+        // Primer set de valores
+        pc_in = 16'h004;
+        pc_plus4_in = 16'h008;
+        instruction_in = 16'h1234;
+        #10;
+        
+        // Segundo set de valores
+        pc_in = 16'h008;
+        pc_plus4_in = 16'h00C;
+        instruction_in = 16'h5678;
+        #10;
+
+        // Activar reset en medio de la operación
+        reset = 1;
+        #10;
+        reset = 0;
+
+        // Continuar con más entradas
+        pc_in = 16'h010;
+        pc_plus4_in = 16'h014;
+        instruction_in = 16'h9ABC;
+        #10;
+        
+        // Finalizar simulación
+        $finish;
+    end
+
+    // Opcional: Monitorear cambios en las señales
+    initial begin
+        $monitor("At time %t, reset = %b, pc_in = %h, pc_plus4_in = %h, instruction_in = %h, pc_out = %h, pc_plus4_out = %h, instruction_out = %h",
+                 $time, reset, pc_in, pc_plus4_in, instruction_in, pc_out, pc_plus4_out, instruction_out);
+    end
+
+endmodule

@@ -1,0 +1,58 @@
+`timescale 1ps / 1ps
+
+module procesador_tb;
+
+    // Parámetros del test bench
+    parameter CLK_PERIOD = 10; // Periodo del reloj en ps
+
+    // Señales de entrada
+    logic clk;
+    logic rst;
+    logic rstVga;
+
+    // Señales de salida
+    logic vgaclk;
+    logic hsync;
+    logic vsync;
+    logic sync_b;
+    logic blank_b;
+    logic [7:0] r;
+    logic [7:0] g;
+    logic [7:0] b;
+
+    // Instancia del módulo procesador
+    procesador uut (
+        .clk(clk),
+        .rst(rst),
+        .rstVga(rstVga),
+        .vgaclk(vgaclk),
+        .hsync(hsync),
+        .vsync(vsync),
+        .sync_b(sync_b),
+        .blank_b(blank_b),
+        .r(r),
+        .g(g),
+        .b(b)
+    );
+
+    // Generación del reloj
+    always #CLK_PERIOD clk = ~clk;
+
+    // Inicialización
+    initial begin
+        clk = 0;
+        rst = 1;
+        rstVga = 1;
+
+        // Liberación del reset
+        #20 rst = 0;
+        #20 rstVga = 0;
+
+        // Cambios en las señales durante la simulación
+        #100; // Espera un tiempo para observar las señales de salida
+
+        // Terminación de la simulación
+        #1000 $finish;
+    end
+
+endmodule

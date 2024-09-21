@@ -1,0 +1,86 @@
+
+module Control_Unit_tb;
+
+    // Inputs
+    reg [15:0] op;
+    reg imm;
+
+    // Outputs
+    wire regWrite;
+    wire memWrite;
+    wire jump;
+    wire branch;
+    wire aluSrc;
+    wire [1:0] resultSrc;
+    wire [2:0] aluControl;
+
+    // Instantiate the Unit Under Test (UUT)
+    Control_Unit uut (
+        .op(op),
+        .imm(imm),
+        .regWrite(regWrite),
+        .memWrite(memWrite),
+        .jump(jump),
+        .branch(branch),
+        .aluSrc(aluSrc),
+        .resultSrc(resultSrc),
+        .aluControl(aluControl)
+    );
+
+    // Test sequence
+    initial begin
+        // Initialize Inputs
+        op = 0;
+        imm = 0;
+
+        // Wait 100 ns for global reset to finish
+        #100;
+        
+        // Test each operation by setting the 'op' code
+        // ADD operation
+        op = 4'b0000; imm = 0;
+        #10;
+
+        // SUB operation
+        op = 4'b0001; imm = 0;
+        #10;
+
+        // AND operation
+        op = 4'b0010; imm = 0;
+        #10;
+
+        // ORR operation
+        op = 4'b0011; imm = 0;
+        #10;
+
+        // LSL operation
+        op = 4'b0100; imm = 0;
+        #10;
+
+        // CMP operation (with immediate)
+        op = 4'b0101; imm = 1;
+        #10;
+        
+        // CMP operation (without immediate)
+        op = 4'b0101; imm = 0;
+        #10;
+
+        // SET operation (with immediate)
+        op = 4'b0110; imm = 1;
+        #10;
+
+        // SET operation (without immediate)
+        op = 4'b0110; imm = 0;
+        #10;
+
+        // More operations can be added here in the same manner...
+
+    end
+      
+    // Optional: Displaying output values
+    initial begin
+        $monitor("Time = %t, OP = %b, IMM = %b, RegWrite = %b, MemWrite = %b, Jump = %b, Branch = %b, AluSrc = %b, ResultSrc = %b, AluControl = %b",
+                 $time, op, imm, regWrite, memWrite, jump, branch, aluSrc, resultSrc, aluControl);
+    end
+
+endmodule
