@@ -1,0 +1,19 @@
+
+module program_counter(input logic clk, rst,
+								input logic [32-1:0] d,
+								output logic [32-1:0] q);
+
+always_ff @(posedge clk or negedge rst)
+	if (rst == 0) q <= 0;
+	else q <= d;
+	
+	
+always @(posedge clk)
+    begin
+        if(rst == 1'b0)
+            PC <= {32{1'b0}};
+        else
+            PC <= PC_Next;
+    end
+	 
+endmodule

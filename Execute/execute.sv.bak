@@ -1,0 +1,14 @@
+
+module execute( input logic clk, rst, regWriteE, memWriteE, jumpE, branchE, aluSrcE, // se;ales de un bit
+					input logic [1:0] resultSrcE,
+					input logic [3:0] aluControlE,					
+					input logic [15:0] aluResE, RD1E, RD2E, PCPlus2E, PCE, immE,
+					input logic [3:0] RdE,
+					
+					output logic regWriteM, memWriteM,
+					output logic [1:0] resultSrcM,
+					output logic [15:0] PCPlus2M, aluResM, writeDataM,
+					output logic [3:0] RdM,					
+					);
+					
+endmodule 

@@ -1,0 +1,26 @@
+module hazard_unit(
+
+	input logic [7:0] BranchPC, 	// nueva direccion del branch (si se aprueba el branch)
+	input logic zeroFlag,			// bandera de cero dada por la alu que se encarga de comparar el contador
+
+	output logic stopSignal			// senal de detener el pipeline
+	output logic selectPCMux 		// senal de seleccion del mux para el pc
+
+	);
+	
+	
+
+	// Inicializar la señal de stall
+	always_comb begin
+
+		// Detectar hazard de control (si la instrucción actual es un salto y la bandera de cero est activa)
+		if (OpCode == 4b'0011 and zeroFlag) begin
+			
+			// activar la senal de stop y la de seleccion del branch PC
+			stop signal = 1;	// senal de stop para detener el pipeline
+			selectPCMux = 1;	// seleccion del pc para el branch
+			
+		end
+	end
+
+endmodule
