@@ -1,0 +1,206 @@
+Flow report for procesador
+Sat Sep 21 19:32:17 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Flow Summary                                                              ;
++-----------------------------+---------------------------------------------+
+; Flow Status                 ; Successful - Sat Sep 21 19:32:17 2024       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; procesador                                  ;
+; Top-level Entity Name       ; memory                                      ;
+; Family                      ; Cyclone V                                   ;
+; Device                      ; 5CSEMA5F31C6                                ;
+; Timing Models               ; Final                                       ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
+; Total registers             ; N/A until Partition Merge                   ;
+; Total pins                  ; N/A until Partition Merge                   ;
+; Total virtual pins          ; N/A until Partition Merge                   ;
+; Total block memory bits     ; N/A until Partition Merge                   ;
+; Total PLLs                  ; N/A until Partition Merge                   ;
+; Total DLLs                  ; N/A until Partition Merge                   ;
++-----------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 09/21/2024 19:32:08 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; procesador          ;
++-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                 ;
++--------------------------------------+----------------------------------------+---------------+-------------+--------------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id         ;
++--------------------------------------+----------------------------------------+---------------+-------------+--------------------+
+; COMPILER_SIGNATURE_ID                ; 231143717264767.172696872822636        ; --            ; --          ; --                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; shiftLPC_tb        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; IF_ID_Reg_tb       ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; procesador_tb      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; compuerta_tb       ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; program_counter_tb ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; memory_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; register_file_tb   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; fetch_tb           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; hazardUnit_tb      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Control_Unit_tb    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; extend_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ID_EXE_Reg_tb      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; aluFlags_tb        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; mux_WB_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; execute_tb         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; mux2_1_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; contador_tb        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; decode_tb          ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; alu_tb             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; IMem_tb            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; sumador_tb         ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; hazardUnit_tb                          ; --            ; --          ; eda_simulation     ;
+; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation     ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --                 ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_FILE                  ; testbench/shiftLPC_tb.sv               ; --            ; --          ; shiftLPC_tb        ;
+; EDA_TEST_BENCH_FILE                  ; testbench/IF_ID_Reg_tb.sv              ; --            ; --          ; IF_ID_Reg_tb       ;
+; EDA_TEST_BENCH_FILE                  ; testbench/procesador_tb.sv             ; --            ; --          ; procesador_tb      ;
+; EDA_TEST_BENCH_FILE                  ; testbench/compuerta_tb.sv              ; --            ; --          ; compuerta_tb       ;
+; EDA_TEST_BENCH_FILE                  ; testbench/program_counter_tb.sv        ; --            ; --          ; program_counter_tb ;
+; EDA_TEST_BENCH_FILE                  ; testbench/memory_tb.sv                 ; --            ; --          ; memory_tb          ;
+; EDA_TEST_BENCH_FILE                  ; testbench/register_file_tb.sv          ; --            ; --          ; register_file_tb   ;
+; EDA_TEST_BENCH_FILE                  ; testbench/fetch_tb.sv                  ; --            ; --          ; fetch_tb           ;
+; EDA_TEST_BENCH_FILE                  ; testbench/hazardUnit_tb.sv             ; --            ; --          ; hazardUnit_tb      ;
+; EDA_TEST_BENCH_FILE                  ; testbench/Control_Unit_tb.sv           ; --            ; --          ; Control_Unit_tb    ;
+; EDA_TEST_BENCH_FILE                  ; testbench/extend_tb.sv                 ; --            ; --          ; extend_tb          ;
+; EDA_TEST_BENCH_FILE                  ; testbench/ID_EXE_Reg_tb.sv             ; --            ; --          ; ID_EXE_Reg_tb      ;
+; EDA_TEST_BENCH_FILE                  ; testbench/aluFlags_tb.sv               ; --            ; --          ; aluFlags_tb        ;
+; EDA_TEST_BENCH_FILE                  ; testbench/mux_WB_tb.sv                 ; --            ; --          ; mux_WB_tb          ;
+; EDA_TEST_BENCH_FILE                  ; testbench/execute_tb.sv                ; --            ; --          ; execute_tb         ;
+; EDA_TEST_BENCH_FILE                  ; testbench/mux2_1_tb.sv                 ; --            ; --          ; mux2_1_tb          ;
+; EDA_TEST_BENCH_FILE                  ; testbench/contador_tb.sv               ; --            ; --          ; contador_tb        ;
+; EDA_TEST_BENCH_FILE                  ; testbench/decode_tb.sv                 ; --            ; --          ; decode_tb          ;
+; EDA_TEST_BENCH_FILE                  ; testbench/alu_tb.sv                    ; --            ; --          ; alu_tb             ;
+; EDA_TEST_BENCH_FILE                  ; testbench/IMem_tb.sv                   ; --            ; --          ; IMem_tb            ;
+; EDA_TEST_BENCH_FILE                  ; testbench/sumador_tb.sv                ; --            ; --          ; sumador_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; shiftLPC_tb                            ; --            ; --          ; shiftLPC_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; IF_ID_Reg_tb                           ; --            ; --          ; IF_ID_Reg_tb       ;
+; EDA_TEST_BENCH_MODULE_NAME           ; procesador_tb                          ; --            ; --          ; procesador_tb      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; compuerta_tb                           ; --            ; --          ; compuerta_tb       ;
+; EDA_TEST_BENCH_MODULE_NAME           ; program_counter_tb                     ; --            ; --          ; program_counter_tb ;
+; EDA_TEST_BENCH_MODULE_NAME           ; memory_tb                              ; --            ; --          ; memory_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; register_file_tb                       ; --            ; --          ; register_file_tb   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; fetch_tb                               ; --            ; --          ; fetch_tb           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; hazardUnit_tb                          ; --            ; --          ; hazardUnit_tb      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Control_Unit_tb                        ; --            ; --          ; Control_Unit_tb    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; extend_tb                              ; --            ; --          ; extend_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ID_EXE_Reg_tb                          ; --            ; --          ; ID_EXE_Reg_tb      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; aluFlags_tb                            ; --            ; --          ; aluFlags_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; mux_WB_tb                              ; --            ; --          ; mux_WB_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; execute_tb                             ; --            ; --          ; execute_tb         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; mux2_1_tb                              ; --            ; --          ; mux2_1_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; contador_tb                            ; --            ; --          ; contador_tb        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; decode_tb                              ; --            ; --          ; decode_tb          ;
+; EDA_TEST_BENCH_MODULE_NAME           ; alu_tb                                 ; --            ; --          ; alu_tb             ;
+; EDA_TEST_BENCH_MODULE_NAME           ; IMem_tb                                ; --            ; --          ; IMem_tb            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; sumador_tb                             ; --            ; --          ; sumador_tb         ;
+; EDA_TEST_BENCH_NAME                  ; compuerta_tb                           ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; register_file_tb                       ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; extend_tb                              ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; IF_ID_Reg_tb                           ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; mux2_1_tb                              ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; program_counter_tb                     ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; sumador_tb                             ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; Control_Unit_tb                        ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; ID_EXE_Reg_tb                          ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; fetch_tb                               ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; decode_tb                              ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; memory_tb                              ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; shiftLPC_tb                            ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; IMem_tb                                ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; execute_tb                             ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; aluFlags_tb                            ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; procesador_tb                          ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; contador_tb                            ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; alu_tb                                 ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; mux_WB_tb                              ; --            ; --          ; eda_simulation     ;
+; EDA_TEST_BENCH_NAME                  ; hazardUnit_tb                          ; --            ; --          ; eda_simulation     ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation     ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                 ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                 ;
+; MISC_FILE                            ; InstructionFetch/IMem_bb.v             ; --            ; --          ; --                 ;
+; MISC_FILE                            ; Memory/DataMemory_bb.v                 ; --            ; --          ; --                 ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; memory      ; Top                ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; memory      ; Top                ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; memory      ; Top                ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                 ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                 ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                 ;
+; TOP_LEVEL_ENTITY                     ; memory                                 ; procesador    ; --          ; --                 ;
++--------------------------------------+----------------------------------------+---------------+-------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                          ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Elaboration ; 00:00:10     ; 1.0                     ; 4797 MB             ; 00:00:08                           ;
+; Total                  ; 00:00:10     ; --                      ; --                  ; 00:00:08                           ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++------------------------+------------------+------------+------------+----------------+
+; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++------------------------+------------------+------------+------------+----------------+
+; Analysis & Elaboration ; MJCLOQ           ; Windows 10 ; 10.0       ; x86_64         ;
++------------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off procesador -c procesador --analysis_and_elaboration
+
+
+

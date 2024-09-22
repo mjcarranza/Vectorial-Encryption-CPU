@@ -4,8 +4,7 @@ module MEM_WB_Reg(
     
     // Entradas
     input logic regWrite_in,
-    input logic [1:0] resultSrc_in,
-    input logic [15:0] pc_plus2_in,
+    input logic [1:0] resultSrc_in,  		// seleccion del mux
     input logic [3:0] rd_in,
     input logic [15:0] aluRes_in,
     input logic [15:0] readData_in,

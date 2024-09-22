@@ -6,6 +6,7 @@ module decode( input logic clk, rst, regWriteWB, zeroFlag,
 					output logic [15:0] RD01E, RD02E, RD11E, RD12E, RD21E, RD22E, RD31E, RD32E,
 					output logic [3:0] RdE,
 					output logic regWriteE, memWriteE, branchE, resultSrcE, stopPipe, selPC,
+					output logic [7:0] BranchPC,
 					output logic [2:0] aluControlE
 					
 					);
@@ -15,8 +16,12 @@ module decode( input logic clk, rst, regWriteWB, zeroFlag,
 	logic [1:0] resultSrcD, resSrc;
 	logic [2:0] aluControlD, aluCtrl;
 	logic [3:0] a1Data, a2Data;
+	
+	assign BranchPC = inst[7:0];
 
 	hazardUnit hazard(
+								.clk(clk),
+								.reset(rst),
 								.zeroFlag(zeroFlag),         	// Bandera de cero de la ALU que compara el contador
 								.OpCode(inst[11:8]), 	// Código de operación de la instrucción actual
 								.stopSignal(stopPipe),  // Señal para detener el pipeline (ENTRA EN TODOS LOS REGISTROS, EXECPTO EL PC)

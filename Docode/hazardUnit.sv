@@ -1,4 +1,6 @@
 module hazardUnit(
+    input logic clk,               // Señal de reloj
+    input logic reset,             // Señal de reset
     input logic zeroFlag,          // Bandera de cero de la ALU que compara el contador
     input logic [3:0] OpCode,      // Código de operación de la instrucción actual
 
@@ -6,18 +8,44 @@ module hazardUnit(
     output logic selectPCMux       // Señal para seleccionar el MUX para el PC
 );
     
-    // Inicializar la señal de control
-    always_comb begin
-        // Por defecto, las señales se inicializan en 0
-        stopSignal = 0;
-        selectPCMux = 0;
+    // Declarar un contador para controlar los 3 ciclos de espera
+    logic [1:0] cycleCounter;
+    logic hazardDetected;          // Señal interna para detectar el hazard
 
-        // Detectar hazard de control (si la instrucción es un branch y la bandera de cero está activa)
+    // Lógica combinacional para detectar el hazard
+    always_comb begin
+        hazardDetected = 0;
+
+        // Detectar hazard de control (branch con ceroFlag activo)
         if (OpCode == 4'b0011 && zeroFlag) begin
-            stopSignal = 1;       // Señal de stop para detener el pipeline
-            selectPCMux = 1;      // Selección del PC para el branch
+            hazardDetected = 1;
         end
     end
 
-endmodule
+    // Lógica secuencial para controlar el ciclo de detención y la señal selectPCMux
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            cycleCounter <= 0;     // Resetear el contador
+            stopSignal <= 0;       // Asegurar que el pipeline no esté detenido en reset
+            selectPCMux <= 0;      // Resetear la selección del MUX
+        end
+        else if (hazardDetected) begin
+            if (cycleCounter == 0) begin
+                stopSignal <= 1;       // Detener el pipeline al detectar el hazard
+                selectPCMux <= 1;      // Selección del MUX para el branch
+            end
 
+            if (cycleCounter == 1) begin
+                selectPCMux <= 0;      // Cambiar el MUX después del primer ciclo
+            end
+
+            // Incrementar el contador y desactivar `stopSignal` después de 3 ciclos
+            if (cycleCounter == 3) begin
+                cycleCounter <= 0;     // Resetear el contador después de 3 ciclos
+                stopSignal <= 0;       // Reactivar el pipeline
+            end else begin
+                cycleCounter <= cycleCounter + 1;   // Incrementar el contador
+            end
+        end
+    end
+endmodule

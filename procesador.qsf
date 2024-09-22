@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY fetch
+set_global_assignment -name TOP_LEVEL_ENTITY memory
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:02:15  APRIL 29, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
@@ -55,7 +55,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE procesador.sv
 set_global_assignment -name SYSTEMVERILOG_FILE new_clk.sv
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name BOARD "DE1-SoC Board"
-set_global_assignment -name SYSTEMVERILOG_FILE Docode/extend.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Docode/register_file.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench/register_file_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench/extend_tb.sv
@@ -64,7 +63,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE Execute/EXE_MEM_Reg.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Execute/alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Execute/sumadorExe.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Execute/mux_Exe.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Execute/compuerta.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench/compuerta_tb.sv
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -74,7 +72,7 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH fetch_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH hazardUnit_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME compuerta_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id compuerta_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME compuerta_tb -section_id compuerta_tb
@@ -126,14 +124,10 @@ set_global_assignment -name SYSTEMVERILOG_FILE vga/vga.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga/pll.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga/vgaController.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga/videoGen.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Docode/shiftLPC.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench/shiftLPC_tb.sv
 set_global_assignment -name EDA_TEST_BENCH_NAME shiftLPC_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id shiftLPC_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME shiftLPC_tb -section_id shiftLPC_tb
-set_global_assignment -name SYSTEMVERILOG_FILE Docode/muxDeco.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Docode/muxSrc.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Execute/aluFlags.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testbench/IMem_tb.sv
 set_global_assignment -name EDA_TEST_BENCH_NAME IMem_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id IMem_tb
@@ -202,6 +196,7 @@ set_global_assignment -name MIF_FILE Memory/data.mif
 set_global_assignment -name SYSTEMVERILOG_FILE Docode/decodeSignalReg.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Memory/tempMemReg.sv
 set_global_assignment -name SYSTEMVERILOG_FILE Docode/hazardUnit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbench/hazardUnit_tb.sv
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/compuerta_tb.sv -section_id compuerta_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/register_file_tb.sv -section_id register_file_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/extend_tb.sv -section_id extend_tb
@@ -222,6 +217,10 @@ set_global_assignment -name EDA_TEST_BENCH_FILE testbench/procesador_tb.sv -sect
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/contador_tb.sv -section_id contador_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/alu_tb.sv -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/mux_WB_tb.sv -section_id mux_WB_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME hazardUnit_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id hazardUnit_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME hazardUnit_tb -section_id hazardUnit_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbench/hazardUnit_tb.sv -section_id hazardUnit_tb
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
