@@ -1,0 +1,13 @@
+module parallelALUs(
+	 input logic [127:0] Matrix,
+    output logic [127:0] Result
+	 
+);
+	logic [31:0] C0,C1,C2,C3;
+	ALU ALU_test(2'b11,0,Matrix[127:96],Matrix[127:96],SrcC,ALUresult,c0,c1,c2,c3,Cout);
+	ALU ALU_test(2'b11,0,Matrix[127:96],Matrix[127:96],SrcC,ALUresult,c0,c1,c2,c3,Cout);
+	ALU ALU_test(2'b11,0,Matrix[127:96],Matrix[127:96],SrcC,ALUresult,c0,c1,c2,c3,Cout);
+	ALU ALU_test(2'b11,0,Matrix[127:96],Matrix[127:96],SrcC,ALUresult,c0,c1,c2,c3,Cout);
+	 
+
+endmodule

@@ -1,0 +1,92 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Bryan_Gomez/Documents/cpuAES/simulation/modelsim
+vALU
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1727136939
+!i10b 1
+!s100 FW0kb22;EQ:lobZeZQYDz1
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ISA^m5C8`zkzF3:DoionJL2
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+Z5 w1727136857
+8C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv
+FC:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv
+!i122 0
+L0 1 122
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1727136939.000000
+!s107 C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv|
+!i113 1
+Z8 o-sv -work work
+Z9 !s92 -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES
+Z10 tCvgOpt 0
+n@a@l@u
+vparallelALUs
+R1
+R2
+!i10b 1
+!s100 =i@iS8EMX7IaU6;d[6m4=3
+R3
+IVPTXocBPJWG51T?zo`d]m0
+R4
+S1
+R0
+w1727136854
+8C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv
+FC:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv
+!i122 1
+L0 1 15
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv|
+!i113 1
+R8
+R9
+R10
+nparallel@a@l@us
+vparallelALUs_tb
+R1
+!s110 1727136940
+!i10b 1
+!s100 nN]>b[HlW^e07n4bZZRNQ0
+R3
+I=mcQo5a;XfVz>?H:ma@Xo3
+R4
+S1
+R0
+R5
+8C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv
+FC:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv
+!i122 2
+L0 1 27
+R6
+r1
+!s85 0
+31
+!s108 1727136940.000000
+!s107 C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv|
+!i113 1
+R8
+R9
+R10
+nparallel@a@l@us_tb

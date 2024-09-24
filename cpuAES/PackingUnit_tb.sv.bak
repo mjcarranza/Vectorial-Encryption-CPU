@@ -1,0 +1,25 @@
+module PackingUnit_tb(
+	
+	// Señales de entrada
+	logic [31:0] ALUresult0, ALUresult1, ALUresult2, ALUresult3;
+   logic MCMode; // Bandera para seleccionar modo MixColumns
+	// Señales de salida
+   logic [127:0] PackedResult;
+   
+	PackingUnit ALU_test(ALUresult0,ALUresult1,ALUresult2,ALUresult3,MCMode,PackedResult);
+	 
+
+// Estímulos
+initial begin
+    
+    ALUresult0 = 32'h01020304;
+	 ALUresult1 = 32'h05060708;
+	 ALUresult2 = 32'h090a0b0c;
+	 ALUresult3 = 32'h0d0e0f00;
+    MCMode = 0;
+    #10;
+    
+    MCMode = 1;
+end
+
+endmodule

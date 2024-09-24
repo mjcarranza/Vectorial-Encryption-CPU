@@ -1,0 +1,38 @@
+module ALU_tb;
+	
+	// Señales de entrada
+   logic [1:0] ALUcontrol;
+	logic	[31:0] SrcA, SrcB;
+	logic Cin;
+   // Señales de salida
+   logic [31:0] ALUresult;
+	logic Cout;
+	
+	ALU ALU_test(ALUcontrol,Cin,SrcA,SrcB,ALUresult,Cout);
+	 
+
+// Estímulos
+initial begin
+    // Test 1: Suma (ALUcontrol = 00)
+    ALUcontrol = 2'b00;
+    SrcA = 8;
+    SrcB = 5;
+    #10;
+
+    // Test 2: Resta (ALUcontrol = 01)
+    ALUcontrol = 2'b00;
+    SrcA = 10;
+    SrcB = 3;
+	 Cin = 1;
+    #10;
+	 
+    // Test 3: Multiplicación (ALUcontrol = 10)
+    ALUcontrol = 2'b00;
+    SrcA = 6;
+    SrcB = 4;
+	 Cout = 0;
+    #10;
+	 
+end
+
+endmodule

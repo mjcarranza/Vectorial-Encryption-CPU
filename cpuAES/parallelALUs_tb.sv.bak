@@ -1,0 +1,16 @@
+module parallelALUs_tb;
+	
+	// Señales de entrada
+   logic [127:0] M;
+	
+	parallelALUs parallelALUs_test(M);
+	 
+
+// Estímulos
+initial begin
+    // Test 1: Suma (ALUcontrol = 00)
+    M = 127'h333b31501c4feaaf38b721a9c94d442d;
+	 
+end
+
+endmodule

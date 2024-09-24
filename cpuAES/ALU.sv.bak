@@ -1,0 +1,18 @@
+module ALU(
+    input [1:0] ALUcontrol,
+    input [9:0] SrcA,
+    input [9:0] SrcB,
+    output reg [9:0] ALUresult
+);
+
+always @(*) begin
+    case(ALUcontrol)
+        2'b00: ALUresult = SrcA + SrcB; // Suma
+        2'b01: ALUresult = SrcA - SrcB; // Resta
+        2'b10: ALUresult = SrcA * SrcB; // Multiplicación
+		  2'b11: ALUresult = SrcB; // Copia
+        default: ALUresult = 10'b0; // Por defecto
+    endcase
+end
+
+endmodule
