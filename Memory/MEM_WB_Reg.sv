@@ -35,7 +35,6 @@ module MEM_WB_Reg(
 			  // Asignación de registros
 			  regWrite_out <= regWrite_in;
 			  resultSrc_out <= resultSrc_in;
-			  pc_plus2_out <= pc_plus2_in;
 			  rd_out <= rd_in;
 			  aluRes_out <= aluRes_in;
 			  readData_out <= readData_in;
