@@ -1,7 +1,7 @@
 module ALU(
 	 input logic [1:0] index,
 	 input logic [3:0] counter,
-    input logic [3:0] ALUcontrol,
+    input logic [4:0] ALUcontrol,
     input logic [31:0] SrcA,
     input logic [31:0] SrcB,
 	 input logic [31:0] SrcC,
@@ -158,8 +158,8 @@ logic [7:0] sbox [0:15][0:15] = '{
 always @(*) begin
 	 
     case(ALUcontrol)
-        4'b0000: ALUresult = SrcA ^ SrcB; // XOR {Cout, ALUresult} = SrcA + SrcB + Cin; // Suma
-        4'b0001: begin
+        5'b00100: ALUresult = SrcA ^ SrcB; // XOR {Cout, ALUresult} = SrcA + SrcB + Cin; // Suma
+        5'b01101: begin
 				case(index)
 				  2'b00: ALUresult = SrcA; // ALU para la primera fila (no shift)
 				  2'b01: ALUresult = (SrcA << 8) + (SrcA >> 24); // ALU para la segunda fila (1 shift)
@@ -168,10 +168,10 @@ always @(*) begin
 				  default: ALUresult = SrcA; // Por defecto, sin shift
 				endcase
 			end
-        4'b0010: begin
+        5'b01100: begin
 				ALUresult = {sbox[SrcA[31:28]][SrcA[27:24]],sbox[SrcA[23:20]][SrcA[19:16]],sbox[SrcA[15:12]][SrcA[11:8]],sbox[SrcA[7:4]][SrcA[3:0]]};
 			end
-		  4'b0011: begin //
+		  5'b01110: begin //
 		      logic [7:0] c0,c1,c2,c3;
 				c0 = xtime2[SrcC[31:28]][SrcC[27:24]] ^ xtime3[SrcC[23:20]][SrcC[19:16]] ^ SrcC[15:8] ^ SrcC[7:0];
             c1 = SrcC[31:24] ^ xtime2[SrcC[23:20]][SrcC[19:16]] ^ xtime3[SrcC[15:12]][SrcC[11:8]] ^ SrcC[7:0];
@@ -179,12 +179,12 @@ always @(*) begin
 				c3 = xtime3[SrcC[31:28]][SrcC[27:24]] ^ SrcC[23:16] ^ SrcC[15:8] ^ xtime2[SrcC[7:4]][SrcC[3:0]];
 				ALUresult = {c0,c1,c2,c3};
 			end
-		  4'b0100: begin //
+		  5'b00110: begin //
 				ALUresult = (SrcA - SrcA[7:0]) | sbox[lastData[7:4]][lastData[3:0]];
 			end
-		  4'b0101: ALUresult = {SrcA[31:8],SrcA[31:24] ^ SrcA[7:0]};
-		  4'b0110: ALUresult = SrcA << 8;
-		  4'b0111: begin
+		  5'b00111: ALUresult = {SrcA[31:8],SrcA[31:24] ^ SrcA[7:0]};
+		  5'b10010: ALUresult = SrcA << 8;
+		  5'b01000: begin
 				case(column)
 				  2'b00: ALUresult = SrcA;
 				  2'b01: ALUresult = {SrcA[31:24],SrcA[31:24]^SrcB[23:16],SrcA[15:0]}; 
@@ -193,10 +193,10 @@ always @(*) begin
 				  default: ALUresult = SrcA; 
 				endcase
 			end
-		  4'b1000: ALUresult = {8'h00,SrcA[31:24]^SrcA[23:16],SrcA[23:16]^SrcA[15:8],SrcA[15:8]^SrcA[7:0]};
-        4'b1001: ALUresult = {SrcB[31:24] ^ SrcA[7:0], SrcA[23:0]};
-		  4'b1010: ALUresult = {SrcA[31:8], SrcB[7:0]};
-		  4'b1011: begin
+		  5'b01001: ALUresult = {8'h00,SrcA[31:24]^SrcA[23:16],SrcA[23:16]^SrcA[15:8],SrcA[15:8]^SrcA[7:0]};
+        5'b01010: ALUresult = {SrcB[31:24] ^ SrcA[7:0], SrcA[23:0]};
+		  5'b01011: ALUresult = {SrcA[31:8], SrcB[7:0]};
+		  5'b10000: begin
 				case(index)
 				  2'b00: ALUresult = SrcA; // ALU para la primera fila (no shift)
 				  2'b01: ALUresult = (SrcA << 24) + (SrcA >> 8); // ALU para la segunda fila (1 shift)
@@ -205,7 +205,7 @@ always @(*) begin
 				  default: ALUresult = SrcA; // Por defecto, sin shift
 				endcase
 			end
-		  4'b1100: begin
+		  5'b01111: begin
 			  logic [7:0] tempA, tempB, tempC, tempD;
 			  int i, j;
 
@@ -236,7 +236,7 @@ always @(*) begin
 			  // Unir los resultados en un solo valor de 32 bits
 			  ALUresult = {tempA, tempB, tempC, tempD};
 		  end
-		  4'b1101: begin //
+		  5'b10001: begin //
 		      logic [7:0] c0,c1,c2,c3;
 				// Aplicando la operación inversa usando xtime9, xtime11, xtime13, xtime14
 				c0 = xtime14[SrcC[31:28]][SrcC[27:24]] ^ xtime11[SrcC[23:20]][SrcC[19:16]] ^ xtime13[SrcC[15:12]][SrcC[11:8]] ^ xtime9[SrcC[7:4]][SrcC[3:0]];
@@ -245,7 +245,7 @@ always @(*) begin
 				c3 = xtime11[SrcC[31:28]][SrcC[27:24]] ^ xtime13[SrcC[23:20]][SrcC[19:16]] ^ xtime9[SrcC[15:12]][SrcC[11:8]] ^ xtime14[SrcC[7:4]][SrcC[3:0]];
 				ALUresult = {c0,c1,c2,c3};
 			end
-		  4'b1110: begin
+		  5'b00101: begin
 				 logic [7:0] rcon;
 				 rcon = 1 << (counter - 1);
 				 if (index == 0) begin
@@ -255,6 +255,7 @@ always @(*) begin
 					  ALUresult = SrcA; // O puedes dejar otro valor si lo prefieres
 				 end
 			end
+		  5'b00011: ALUresult = SrcA;  //MATRIX SET	
 		  default: ALUresult = 32'b0; // Por defecto
     endcase
 end
