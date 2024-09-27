@@ -6,11 +6,11 @@ module compareExec(
 );
 
     // Realizamos la resta de A - B
-    assign C = A - B;
+    assign C = A + B;
 
     // Activamos la bandera `zero` si el resultado es igual a 0
     always_comb begin
-        zero = (C == 4'b0000);  // Si C es 0, activamos la bandera `zero`
+        zero = (C == 4'hA);  // Si C es 0, activamos la bandera `zero`
     end
 
 endmodule

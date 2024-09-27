@@ -2,7 +2,7 @@ module fetch(
 
 			input logic clk, rst, PCSrcE, stop,
 			input logic [11:0] jumpPC,
-			output logic [11:0] InstrD, pcsuma//, PCPlus2D
+			output logic [11:0] InstrD, pcsuma
 	);
 			
 	logic [11:0] pc, pc_out, Inst, PCD, nextPC;
@@ -29,4 +29,5 @@ module fetch(
 						.instruction_in(Inst), 
 						.instruction_out(InstrD));
 	assign pcsuma = pc_out;
+	
 endmodule 

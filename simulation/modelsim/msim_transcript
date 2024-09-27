@@ -10,42 +10,199 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IMem.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:30 on Sep 26,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IMem.v 
+# -- Compiling module IMem
+# 
+# Top level modules:
+# 	IMem
+# End time: 23:24:30 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/sumador.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:30 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/sumador.sv 
+# -- Compiling module sumador
+# 
+# Top level modules:
+# 	sumador
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/program_counter.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/program_counter.sv 
+# -- Compiling module program_counter
+# 
+# Top level modules:
+# 	program_counter
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/mux2_1.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/mux2_1.sv 
+# -- Compiling module mux2_1
+# 
+# Top level modules:
+# 	mux2_1
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv 
+# -- Compiling module IF_ID_Reg
+# 
+# Top level modules:
+# 	IF_ID_Reg
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv 
+# -- Compiling module procesador
+# 
+# Top level modules:
+# 	procesador
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/register_file.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/register_file.sv 
+# -- Compiling module register_file
+# 
+# Top level modules:
+# 	register_file
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/Control_Unit.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/Control_Unit.sv 
+# -- Compiling module Control_Unit
+# 
+# Top level modules:
+# 	Control_Unit
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/ID_EXE_Reg.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/ID_EXE_Reg.sv 
+# -- Compiling module ID_EXE_Reg
+# 
+# Top level modules:
+# 	ID_EXE_Reg
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/hazardUnit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:18:19 on Sep 21,2024
+# Start time: 23:24:31 on Sep 26,2024
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/hazardUnit.sv 
 # -- Compiling module hazardUnit
 # 
 # Top level modules:
 # 	hazardUnit
-# End time: 13:18:19 on Sep 21,2024, Elapsed time: 0:00:00
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/hazardUnit_tb.sv}
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/reg_Count.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:18:19 on Sep 21,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/hazardUnit_tb.sv 
-# -- Compiling module hazardUnit_tb
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/reg_Count.sv 
+# -- Compiling module reg_Count
 # 
 # Top level modules:
-# 	hazardUnit_tb
-# End time: 13:18:19 on Sep 21,2024, Elapsed time: 0:00:00
+# 	reg_Count
+# End time: 23:24:31 on Sep 26,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  hazardUnit_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" hazardUnit_tb 
-# Start time: 13:18:19 on Sep 21,2024
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/procesador_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:24:31 on Sep 26,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/procesador_tb.sv 
+# -- Compiling module procesador_tb
+# 
+# Top level modules:
+# 	procesador_tb
+# End time: 23:24:32 on Sep 26,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  procesador_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" procesador_tb 
+# Start time: 23:24:32 on Sep 26,2024
 # Loading sv_std.std
-# Loading work.hazardUnit_tb
+# Loading work.procesador_tb
+# Loading work.procesador
+# Loading work.mux2_1
+# Loading work.program_counter
+# Loading work.sumador
+# Loading work.IMem
+# Loading altera_mf_ver.altsyncram
+# Loading work.IF_ID_Reg
 # Loading work.hazardUnit
+# Loading work.register_file
+# Loading work.reg_Count
+# Loading work.Control_Unit
+# Loading work.ID_EXE_Reg
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'data0'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/mux2_1.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/muxPC File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 29
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'result'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/mux2_1.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/muxPC File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 29
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'd'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/program_counter.sv(3).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/pc_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 36
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'q'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/program_counter.sv(4).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/pc_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 36
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'A'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/sumador.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/sum_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'C'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/sumador.sv(4).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/sum_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 39
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'IMem_inst'.  Expected 5, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/IMem_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 42
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'address'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IMem.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/IMem_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 42
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(42): [TFMPC] - Missing connection for port 'data'.
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(42): [TFMPC] - Missing connection for port 'wren'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'instruction_in'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv(5).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/fetch File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (12) does not match connection size (16) for port 'instruction_out'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/fetch File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 44
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'control_inst'.  Expected 6, found 5.
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/control_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 124
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'aluControl'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/Control_Unit.sv(4).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/control_inst File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 124
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(124): [TFMPC] - Missing connection for port 'branch'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'decode'.  Expected 38, found 33.
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/decode File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 135
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'aluControl_in'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/ID_EXE_Reg.sv(10).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/decode File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 135
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'aluControl_out'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Docode/ID_EXE_Reg.sv(16).
+#    Time: 0 ps  Iteration: 0  Instance: /procesador_tb/uut/decode File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 135
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(135): [TFMPC] - Missing connection for port 'jump_in'.
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(135): [TFMPC] - Missing connection for port 'branch_in'.
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(135): [TFMPC] - Missing connection for port 'resultSrc_in'.
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(135): [TFMPC] - Missing connection for port 'branch_out'.
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv(135): [TFMPC] - Missing connection for port 'resultSrc_out'.
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: mario  Hostname: MJCLOQ  ProcessID: 29632
+#           Attempting to use alternate WLF file "./wlfte16rha".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfte16rha
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
 # Break key hit
-# Break in Module hazardUnit_tb at C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/hazardUnit_tb.sv line 23
-# End time: 13:19:22 on Sep 21,2024, Elapsed time: 0:01:03
-# Errors: 0, Warnings: 0
+# Simulation stop requested.
+# End time: 23:29:58 on Sep 26,2024, Elapsed time: 0:05:26
+# Errors: 0, Warnings: 25

@@ -1,252 +1,210 @@
-module procesador(input logic clk, rst, rstCont,
-			output logic vgaclk, // 25.175 MHz VGA clock
-			output logic hsync, vsync,
-			output logic sync_b, blank_b, // To monitor & DAC
-			output logic [7:0] r, g, b);
+module procesador(
+			input logic clk, rst, regWriteWB, updateCount, zeroFlag,
+			input logic [15:0] resCount, res0, res1, res2, res3, // entrada individual
+			input logic [3:0] RdestW, // entrada general
+			
+			output logic [11:0] pcsuma,
+			
+			// salidas del cicle decode
+			output logic [15:0] RD01E, RD02E, RD11E, RD12E, RD21E, RD22E, RD31E, RD32E, dataOp1, dataOp2,instruction,
+			output logic [3:0] RdE,
+			output logic regWriteE, memWriteE, updateCnt,
+			output logic [2:0] aluControlE
+			);
 
-	logic [15:0] pc, pc_out, Inst, PCPlus2F, extended, extendedE, RD1E, RD2E, srcBE, nextDir;
-	logic [15:0] pcStageIn, PCD, PCE, pcP2In, PCPlus2D, PCPlus2E, PCPlus2M, PCPlus2W, instDeco, dataDeco1, dataDeco2, resultWB;
-	logic [15:0] aluResM, aluResE, aluResW, writeDataM, writeDataW, readDataM, readDataW, source, dataD, pixeles;
-	logic PCSrcE, memWriteDeco, memWriteE, regWriteWB, regWriteM, regWriteE, regWriteDeco, memWriteM, a1Source;
-	logic jumpDeco, jumpE, branchDeco, branchE, aluSrcDeco, aluSrcE, resultSrcM, zeroE, zeroComp, negE, negComp, procesStop;
-	logic [1:0] resultSrcDeco, resultSrcE, resultSrcW;
-	logic [3:0] aluControlDeco, aluControlE;
-	logic [3:0] RdestE, RdestW, RdestM, a1Data, a2Data;
+	logic [15:0] pc, pc_out, Inst, inst, PCD, nextPC;
+	logic [15:0] extended,ext, dataDeco01, dataDeco02, dataDeco11, dataDeco12, dataDeco21, dataDeco22, dataDeco31, dataDeco32, dataCont1, dataCont2;
+	logic regWriteD, RWrite, memWriteD, MWrite, jumpD, jump, branchD, branch, aluSrcD, aluSrc, a1Source, source, selPC, stop, update;
+	logic [2:0] aluControlD, aluCtrl;
+	logic [3:0] a1Data, a2Data;
 	
 	
 	
-	// --------------------------------------- VGA --------------------------------------------------//
-	
-	vga vga_inst(
-				.clk(clk),
-				.rst(rst),
-				.pixeles(pixeles),
-				.vgaclk(vgaclk),
-				.hsync(hsync), 
-				.vsync(vsync),
-				.sync_b(sync_b), 
-				.blank_b(blank_b),
-				.readAddress(nextDir),
-				.r(r), 
-				.g(g), 
-				.b(b)
-				);
 
-	// --------------------------------------- ciclo fetch --------------------------------------------------//
+	// --------------------------------------- ciclo fetch ---------------------------------------------------//
+	
+	
 	
 	// mux PC
-	mux2_1 muxPC(.data0(PCPlus2F),
-                .data1(PCPlus2E),
-                .select(PCSrcE),
+	mux2_1 muxPC(.data0(nextPC),
+                .data1(inst[7:0]),
+                .select(selPC),
                 .result(pc)
                 );
-	
+					 
 	// registro PC
-	program_counter pc_inst(.clk(clk), .rst(rst), .d(pc), .stop(procesStop), .q(pc_out));
+	program_counter pc_inst(.clk(clk), .rst(rst), .d(pc), .q(pc_out));
 	
-	// sumar pc+1 para usar la siguiente instruccion
-	sumador sum_inst(.A(pc_out), .B(16'h1), .C(PCPlus2F));
+	// sumar pc+2
+	sumador sum_inst(.A(pc_out), .B(12'h1), .C(nextPC));		/// cambiar el valor de la suma si es necesario
 
 	// instancia de memoria de instrucciones
-	IMem IMem_inst(.address(pc_out[7:0]), .clock(clk), .q(Inst));
+	IMem IMem_inst(.address(pc_out), .clock(clk), .q(Inst));
 	
 	IF_ID_Reg fetch(.clk(clk), 
 						.reset(rst), 
-						.pc_plus2_in(PCPlus2F), 
+						.stop(stop),
 						.instruction_in(Inst), 
-						.pc_plus2_out(PCPlus2D), 
-						.instruction_out(instDeco));
+						.instruction_out(inst));
+	assign pcsuma = pc_out;
+	assign instruction = inst;
 	
-	// ------------------------------------- ciclo decode --------------------------------------- //
 	
-	// instancia de extension de signo
-	extend ext_inst(.Instr(instDeco[7:1]), .ExtImm(extended));
+	// ------------------------------------- ciclo decode --------------------------------------------------- //
 	
-		// mux PC
-	muxDeco muxRF1(.data0(instDeco[7:4]), // Rm
-                .data1(instDeco[11:8]),  // Rd para set y cmp
-                .select(a1Source),
-                .result(a1Data)
-                );
-					 
-	// instancia para el dato fuente numero 1
-	muxSrc muxSrc1(.data0(dataDeco1),
-				 .data1(16'h0000),
-				 .select(source),
-				 .result(dataD)
-				 );
-				 
-	// instancia para el dato fuente numero 2
-	muxDeco muxRF2(.data0(instDeco[3:0]), // Rn
-                .data1(instDeco[11:8]), // Rd para set y cmp
-                .select(a1Source),
-                .result(a2Data)
-                );
+	// unidad de hazard
+	hazardUnit hazard(
+								.clk(clk),
+								.reset(rst),
+								.zeroFlag(zeroFlag),         	// Bandera de cero de la ALU que compara el contador
+								.OpCode(inst[11:8]), 	// Código de operación de la instrucción actual
+								.stopSignal(stop),  // Señal para detener el pipeline (ENTRA EN TODOS LOS REGISTROS, EXECPTO EL PC)
+								.selectPCMux(selPC) 		// senal de seleccion del pc a utilizar
+	);
 	
-	// instancia de register file 
-	register_file regFile_inst(.clk(clk), 
+	// instancia de register file 0
+	register_file regFile_0(.clk(clk), 
 										.rst(rst), 
 										.regWrite(regWriteWB), 
-										.A1(a1Data), 
-										.A2(a2Data), 
+										.A1(inst[7:4]), 
+										.A2(inst[3:0]), 
 										.A3(RdestW), 
-										.WD3(resultWB),	
-										.RD1(dataDeco1), 
-										.RD2(dataDeco2)
+										.WD3(res0),	
+										.RD1(dataDeco01), 
+										.RD2(dataDeco02)
 										); 
+	// instancia de register file
+	register_file regFile_1(.clk(clk), 
+										.rst(rst), 
+										.regWrite(regWriteWB), 
+										.A1(inst[7:4]), 
+										.A2(inst[3:0]), 
+										.A3(RdestW), 
+										.WD3(res1),	
+										.RD1(dataDeco11), 
+										.RD2(dataDeco12)
+										);
+									
+	// instancia de register file
+	register_file regFile_2(.clk(clk), 
+										.rst(rst), 
+										.regWrite(regWriteWB), 
+										.A1(inst[7:4]), 
+										.A2(inst[3:0]), 
+										.A3(RdestW), 
+										.WD3(res2),	
+										.RD1(dataDeco21), 
+										.RD2(dataDeco22)
+										);
+									
+	// instancia de register file
+	register_file regFile_3(.clk(clk), 
+										.rst(rst), 
+										.regWrite(regWriteWB), 
+										.A1(inst[7:4]), 
+										.A2(inst[3:0]), 
+										.A3(RdestW), 
+										.WD3(res3),	
+										.RD1(dataDeco31), 
+										.RD2(dataDeco32)
+										);	
+										
+	reg_Count reg_Count(.clk(clk), 
+										.rst(rst), 
+										.regWrite(updateCount), 			// siempre se escribe el valor del contador
+										.A1(4'h0), 			// registro donde se guarda el numero a comparar para salir del loop (reg 0)
+										.A2(4'h1), 			// registro donde se guarda el contador a comparar con 0 (reg 1)
+										.A3(4'b0001), 				// registro 1 siempre
+										.WD3(resCount),			// resultado de la alu del contador
+										.RD1(dataCont1),
+										.RD2(dataCont2)
+										);
 									
 	// instancia para la unidad de control
-	Control_Unit control_inst( .operation(instDeco[15:12]),
-										.imm(instDeco[0]),
-										.a1Source(a1Source),
-										.regWrite(regWriteDeco), 
-										.memWrite(memWriteDeco), 
-										.jump(jumpDeco), 
-										.branch(branchDeco), 
-										.aluSrc(aluSrcDeco), 
-										.resultSrc(resultSrcDeco),
-										.aluControl(aluControlDeco),
-										.stop(procesStop),
-										.mxSource(source)
+	Control_Unit control_inst( .operation(inst[11:8]),
+										.regWrite(regWriteD), 
+										.memWrite(memWriteD), 
+										//.branch(branchD),
+										.updateCount(update),
+										//.resultSrc(resultSrcD),
+										.aluControl(aluControlD)
 										);
-										
 
 	
 	// instancia para el registro decode/execute
 	ID_EXE_Reg decode(.clk(clk),
 							.reset(rst),
-							.pc_in(instDeco[11:0]),
-							.pc_plus2_in(PCPlus2D),
-							.op1_in(dataD),
-							.op2_in(dataDeco2),
-							.rd_in(instDeco[11:8]),
-							.extend_in(extended),
+							.stop(stop),
+							.op01_in(dataDeco01),
+							.op02_in(dataDeco02),
+							.op11_in(dataDeco11),
+							.op12_in(dataDeco12),
+							.op21_in(dataDeco21),
+							.op22_in(dataDeco22),
+							.op31_in(dataDeco31),
+							.op32_in(dataDeco32),
+							.op1(dataCont1),
+							.op2(dataCont2),
 							
-							.regWrite_in(regWriteDeco), .memWrite_in(memWriteDeco), .jump_in(jumpDeco), 
-							.branch_in(branchDeco), .aluSrc_in(aluSrcDeco),
-							.resultSrc_in(resultSrcDeco),
-							.aluControl_in(aluControlDeco),
+							.updateCount_in(update),//
+							.rd_in(inst[11:8]),
+							.regWrite_in(regWriteD), .memWrite_in(memWriteD),
+							//.branch_in(branchD),
+							//.resultSrc_in(resultSrcD),
+							.aluControl_in(aluControlD),
 	 
-							.pc_out(PCE),
-							.pc_plus2_out(PCPlus2E),
-							.op1_out(RD1E),
-							.op2_out(RD2E),
-							.rd_out(RdestE),
-							.extend_out(extendedE),
+							.op01_out(RD01E),
+							.op02_out(RD02E),
+							.op11_out(RD11E),
+							.op12_out(RD12E),
+							.op21_out(RD21E),
+							.op22_out(RD22E),
+							.op31_out(RD31E),
+							.op32_out(RD32E),
+							.op1_out(dataOp1),
+							.op2_out(dataOp2),
 							
-							.regWrite_out(regWriteE), .memWrite_out(memWriteE), .jump_out(jumpE), 
-							.branch_out(branchE), .aluSrc_out(aluSrcE),
-							.resultSrc_out(resultSrcE),
+							.rd_out(RdE),
+							.updateCount_out(updateCnt),//
+							.regWrite_out(regWriteE), .memWrite_out(memWriteE), 
+							//.branch_out(branchE),
+							//.resultSrc_out(resultSrcE),
 							.aluControl_out(aluControlE)
 							);
-	// ------------------------------------- Etapa de ejecucion ---------------------------------- //
 	
 	
-	// instancia mux
-	mux_Exe muxExe_inst(.data0(RD2E),
-							  .data1(extendedE),
-							  .select(aluSrcE),
-							  .result(srcBE)
-							  );
+	// ------------------------------------- Etapa de ejecucion ---------------------------------------------- //
 	
-	// instancia de la alu
-	alu alu_inst(
-					 .A(RD1E),
-					 .B(srcBE),
-					 .sel(aluControlE),
-					 .alu_out(aluResE),
-					 .zero(zeroE),
-					 .negative(negE)
-					);
-					
-	// instancia para el registro de las flags
-	aluFlags aluFlags_inst(	.clk(clk), 
-									.rst(rst), 
-									.n(negE), 
-									.z(zeroE),
-									.nOut(negComp), 
-									.zOut(zeroComp)
-									);
-					
-	// instancia de compuerta 
-	compuerta compuerta_inst(
-							 .zeroE(zeroComp), 
-							 .jumpE(jumpE), 
-							 .branchE(branchE),
-							 .negative(negComp),
-							 .pcSrcE(PCSrcE) // salida
-							);
+
+	
+	
+	// ------------------------------------- Etapa de memoria y Write Back------------------------------------ //
 							
-	// instancia registro exe-mem
-	EXE_MEM_Reg EMReg_inst(
-							 .clk(clk),              	// Reloj del sistema
-							 .reset(rst),            	// Reset asíncrono
-							 
-							 .regWrite_in(regWriteE), 
-							 .memWrite_in(memWriteE),
-							 .resultSrc_in(resultSrcE),
-							 
-							 .pc_plus2_in(PCPlus2E), // Valor de PC+4 de la etapa IF
-							 .rd_in(RdestE),     	// Registro destino
-							 .aluRes_in(aluResE),
-							 .op2_in(RD2E),     	// Operando 2
-							 
-							 
-							 .regWrite_out(regWriteM),
-							 .resultSrc_out(resultSrcM),
-							 .memWrite_out(memWriteM),
-							 .pc_plus2_out(PCPlus2M),  // Valor de PC+4 almacenado
-							 .rd_out(RdestM),     	// Registro destino
-							 .aluRes_out(aluResM),
-							 .op2_out(writeDataM)     	// Operando 2
-							);
-	
-	
-	// ------------------------------------- Etapa de memoria ------------------------------------ //
-	
-	
-	// instancia de la memoria para datos
-	DataMemory dataMem_inst(.address_a(aluResM), // 16 bits
-								.clock_a(clk),
-								.data_a(writeDataM[7:0]), // 16 bits 8
-								.wren_a(memWriteM),
-								.q_a(readDataM),
-								
-								.address_b(nextDir),
-								.clock_b(vgaclk),
-								.q_b(pixeles)
-								);
-								
-	// instancia del registro de memoria
-	MEM_WB_Reg memory(
-						   .clk(clk),
-							.reset(rst),
-							
-							.regWrite_in(regWriteM),
-							.resultSrc_in(resultSrcM),
-							.pc_plus2_in(PCPlus2M),
-							.rd_in(RdestM),
-							.aluRes_in(aluResM),
-							.readData_in(readDataM),
-							.writeDataM(writeDataM),
-							
-							.regWrite_out(regWriteWB),
-							.resultSrc_out(resultSrcW),
-							.pc_plus2_out(PCPlus2W),
-							.rd_out(RdestW),
-							.aluRes_out(aluResW),
-							.readData_out(readDataW),
-							.writeDataW(writeDataW)
-							);
-							
-	// -------------------------------- Etapa de write back ------------------------------------ //
-	
-	// instancia de mux 3-1
-	mux_WB mux3a1_inst(	.data0(aluResW),
-								.data1(readDataW),
-								.select(resultSrcW),
-								.result(resultWB)
-								);
+
 	
 			
 endmodule 
+
+
+
+
+
+
+
+	// --------------------------------------- VGA --------------------------------------------------//
+	
+	//vga vga_inst(
+	//			.clk(clk),
+	//			.rst(rst),
+	//			.pixeles(pixeles),
+	//			.vgaclk(vgaclk),
+	//			.hsync(hsync), 
+	//			.vsync(vsync),
+	//			.sync_b(sync_b), 
+	//			.blank_b(blank_b),
+	//			.readAddress(nextDir),
+	//			.r(r), 
+	//			.g(g), 
+	//			.b(b)
+	//			);
+	

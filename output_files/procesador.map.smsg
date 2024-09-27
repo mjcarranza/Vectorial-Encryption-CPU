@@ -1,1 +1,2 @@
+Info (10281): Verilog HDL Declaration information at procesador.sv(15): object "Inst" differs only in case from object "inst" in the same scope File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 15
 Warning (10268): Verilog HDL information at vgaController.sv(20): always construct contains both blocking and non-blocking assignments File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/vga/vgaController.sv Line: 20

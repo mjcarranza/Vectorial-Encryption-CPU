@@ -3,27 +3,27 @@ module ID_EXE_Reg(
     input logic clk,               // Reloj del sistema
     input logic reset,             // Reset asíncrono
     input logic stop,              // Señal para detener el funcionamiento del registro
-    input logic regWrite_in, memWrite_in, jump_in, branch_in, resultSrc_in,  // banderas de 1 bit 
-    input logic [15:0] op01_in, op11_in, op21_in, op31_in,      // Operando 1
-    input logic [15:0] op02_in, op12_in, op22_in, op32_in,      // Operando 2
+    input logic regWrite_in, memWrite_in, jump_in, branch_in, resultSrc_in, updateCount_in,  // banderas de 1 bit 
+    input logic [15:0] op01_in, op11_in, op21_in, op31_in, op1,      // Operando 1
+    input logic [15:0] op02_in, op12_in, op22_in, op32_in, op2,      // Operando 2
     input logic [3:0] rd_in,      // Registro destino
     input logic [3:0] aluControl_in,  // Control de la ALU (4 bits)
 
-    output logic [15:0] op01_out, op11_out, op21_out, op31_out,  // Operando 1
-    output logic [15:0] op02_out, op12_out, op22_out, op32_out,  // Operando 2
+    output logic [15:0] op01_out, op11_out, op21_out, op31_out, op1_out,  // Operando 1
+    output logic [15:0] op02_out, op12_out, op22_out, op32_out, op2_out,  // Operando 2
     output logic [3:0] rd_out,     // Registro destino
-    output logic regWrite_out, memWrite_out, branch_out, resultSrc_out,  // banderas de 1 bit 
+    output logic regWrite_out, memWrite_out, branch_out, resultSrc_out, updateCount_out,  // banderas de 1 bit 
     output logic [3:0] aluControl_out   // Control de la ALU (4 bits)
 );
 
     // Define registros internos para almacenar los valores entre etapas
     logic [3:0] rd_reg;
-    logic [15:0] op01_reg, op11_reg, op21_reg, op31_reg;
-    logic [15:0] op02_reg, op12_reg, op22_reg, op32_reg;
+    logic [15:0] op01_reg, op11_reg, op21_reg, op31_reg, op1_reg;
+    logic [15:0] op02_reg, op12_reg, op22_reg, op32_reg, op2_reg;
 
     // Banderas
     logic [3:0] aluControl_reg;  
-    logic regWrite_reg, memWrite_reg, branch_reg, resultSrc_reg;
+    logic regWrite_reg, memWrite_reg, branch_reg, resultSrc_reg, updateCount_reg;
 
     // Lógica de actualización de registros
     always_ff @(posedge clk or posedge reset) begin
@@ -37,9 +37,12 @@ module ID_EXE_Reg(
             op22_reg <= 16'b0;
             op31_reg <= 16'b0;
             op32_reg <= 16'b0;
+				op1_reg <= 16'b0;
+				op2_reg <= 16'b0;
             resultSrc_reg <= 1'b0;
             aluControl_reg <= 4'b0;  
             regWrite_reg <= 1'b0;
+				updateCount_reg <= 1'b0;
             memWrite_reg <= 1'b0;
             branch_reg <= 1'b0;
         end else if (!stop) begin  // Actualiza los registros en el flanco positivo del reloj si stop es 0
@@ -52,6 +55,11 @@ module ID_EXE_Reg(
             op22_reg <= op22_in;
             op31_reg <= op31_in;
             op32_reg <= op32_in;
+				
+				op1_reg <= op1;
+				op2_reg <= op2;
+				
+				updateCount_reg <= updateCount_in;
             resultSrc_reg <= resultSrc_in;
             aluControl_reg <= aluControl_in;
             regWrite_reg <= regWrite_in;
@@ -70,6 +78,11 @@ module ID_EXE_Reg(
     assign op22_out = op22_reg;
     assign op31_out = op31_reg;
     assign op32_out = op32_reg;
+	 
+	 assign op1_out = op1_reg;
+	 assign op2_out = op2_reg;
+	 
+	 assign updateCount_out = updateCount_reg;
     assign resultSrc_out = resultSrc_reg;
     assign aluControl_out = aluControl_reg;
     assign regWrite_out = regWrite_reg;

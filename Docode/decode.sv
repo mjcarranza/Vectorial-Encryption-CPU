@@ -11,7 +11,7 @@ module decode( input logic clk, rst, regWriteWB, zeroFlag,
 					
 					);
 
-	logic [15:0] extended,ext, dataDeco01, dataDeco02, dataDeco11, dataDeco12, dataDeco21, dataDeco22, dataDeco31, dataDeco32, realPc, pcP1O,pc;
+	logic [15:0] extended,ext, dataDeco01, dataDeco02, dataDeco11, dataDeco12, dataDeco21, dataDeco22, dataDeco31, dataDeco32;
 	logic regWriteD,RWrite, memWriteD,MWrite, jumpD,jump, branchD, branch, aluSrcD, aluSrc, a1Source, source;
 	logic [1:0] resultSrcD, resSrc;
 	logic [2:0] aluControlD, aluCtrl;
