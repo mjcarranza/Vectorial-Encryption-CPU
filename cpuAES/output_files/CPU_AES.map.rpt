@@ -1,5 +1,5 @@
 Analysis & Elaboration report for CPU_AES
-Mon Sep 23 13:21:22 2024
+Thu Sep 26 22:29:28 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                 ;
 +-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Mon Sep 23 13:21:22 2024          ;
+; Analysis & Elaboration Status ; Successful - Thu Sep 26 22:29:28 2024          ;
 ; Quartus Prime Version         ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                 ; CPU_AES                                        ;
 ; Top-level Entity Name         ; parallelALUs                                   ;
@@ -165,25 +165,23 @@ https://fpgasoftware.intel.com/eula.
 ; Port             ; Type   ; Severity ; Details                                                                             ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; index            ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[2..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[26..23]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[21..20]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[13..11]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[31..29]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[19..17]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[15..14]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[10..9]      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[7..3]       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[28]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[27]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[2..0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[3]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[3..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[18..17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[5..2]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[31..24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[20..19]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[14..12]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[10..6]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[1..0]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[23]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; SrcB[22]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[16]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[8]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[2]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[1]          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[0]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[21]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[16]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[15]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[11]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; column           ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; ALUresult        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -196,23 +194,26 @@ https://fpgasoftware.intel.com/eula.
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; index[1]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; index[0]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[2..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[31..25]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[19..18]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[13..11]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[6..4]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[2..1]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[24..22]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[17..14]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[10..9]      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[21]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[20]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[2..0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[3]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[3..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[23..22]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[3..0]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[31..24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[19..18]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[16..13]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[5..4]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[21]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[20]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[17]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[12]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[11]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[10]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[9]          ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; SrcB[8]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; SrcB[7]          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[3]          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[0]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[6]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; column           ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; ALUresult        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -225,29 +226,22 @@ https://fpgasoftware.intel.com/eula.
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; index[1]         ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; index[0]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[2..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[31..27]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[9..8]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[6..5]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[3..2]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[24..23]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[17..16]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[12..10]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[1..0]       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[26]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[25]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[22]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[21]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[20]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[19]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[18]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[15]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[14]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[13]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[7]          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[4]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[2..0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[3]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[3..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[19..17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[15..12]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[10..6]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[3..0]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[31..24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[5..4]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[23]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[22]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[21]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[20]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[16]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[11]         ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; column           ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; ALUresult        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -259,27 +253,26 @@ https://fpgasoftware.intel.com/eula.
 ; Port             ; Type   ; Severity ; Details                                                                             ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; index            ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[2..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; ALUcontrol[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; ALUcontrol[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; counter[2..0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; counter[3]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[3..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ALUcontrol[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; SrcB[9..8]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[28..24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[22..20]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[18..14]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[12..10]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[7..6]       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[31]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[30]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[29]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[23]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[31..22]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[18..16]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[7..4]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[2..1]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[21]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[20]         ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; SrcB[19]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[15]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[14]         ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; SrcB[13]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[5]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[4]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[12]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[11]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; SrcB[10]         ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; SrcB[3]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[2]          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; SrcB[1]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; SrcB[0]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SrcB[0]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; column           ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; ALUresult        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -291,7 +284,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Sep 23 13:20:44 2024
+    Info: Processing started: Thu Sep 26 22:28:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU_AES -c CPU_AES --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -307,21 +300,63 @@ Info (12021): Found 1 design units, including 1 entities, in source file packing
     Info (12023): Found entity 1: PackingUnit_tb File: C:/Users/Bryan_Gomez/Documents/cpuAES/PackingUnit_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file parallelalus_tb.sv
     Info (12023): Found entity 1: parallelALUs_tb File: C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file columnmaker.sv
+    Info (12023): Found entity 1: Columnmaker File: C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file columnmaker_tb.sv
+    Info (12023): Found entity 1: Columnmaker_tb File: C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker_tb.sv Line: 1
 Info (12127): Elaborating entity "parallelALUs" for the top level hierarchy
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_p0" File: C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv Line: 9
-Warning (10036): Verilog HDL or VHDL warning at ALU.sv(19): object "mix_columns_matrix" assigned a value but never read File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 19
-Warning (10240): Verilog HDL Always Construct warning at ALU.sv(80): inferring latch(es) for variable "c0", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at ALU.sv(80): inferring latch(es) for variable "c1", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at ALU.sv(80): inferring latch(es) for variable "c2", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 80
-Warning (10240): Verilog HDL Always Construct warning at ALU.sv(80): inferring latch(es) for variable "c3", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 80
+Info (12128): Elaborating entity "Columnmaker" for hierarchy "Columnmaker:Columnmaker_test0" File: C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv Line: 12
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_p0" File: C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv Line: 16
+Warning (10036): Verilog HDL or VHDL warning at ALU.sv(20): object "mix_columns_matrix" assigned a value but never read File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 20
+Warning (10230): Verilog HDL assignment warning at ALU.sv(250): truncated value with size 32 to match size of target (8) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 250
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(160): inferring latch(es) for variable "tempA", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(160): inferring latch(es) for variable "tempB", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(160): inferring latch(es) for variable "tempC", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(160): inferring latch(es) for variable "tempD", which holds its previous value in one or more paths through the always construct File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[0]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[1]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[2]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[3]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[4]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[5]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[6]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempD[7]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[0]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[1]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[2]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[3]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[4]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[5]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[6]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempC[7]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[0]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[1]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[2]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[3]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[4]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[5]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[6]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempB[7]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[0]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[1]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[2]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[3]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[4]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[5]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[6]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
+Info (10041): Inferred latch for "tempA[7]" at ALU.sv(160) File: C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv Line: 160
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mix_columns_matrix" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime2" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime3" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime14" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime13" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime11" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime9" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sbox" into its bus
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4807 megabytes
-    Info: Processing ended: Mon Sep 23 13:21:22 2024
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4860 megabytes
+    Info: Processing ended: Thu Sep 26 22:29:28 2024
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:43
 
 

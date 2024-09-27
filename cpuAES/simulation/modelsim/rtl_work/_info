@@ -11,82 +11,109 @@ cModel Technology
 Z0 dC:/Users/Bryan_Gomez/Documents/cpuAES/simulation/modelsim
 vALU
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1727136939
+Z2 !s110 1727412101
 !i10b 1
-!s100 FW0kb22;EQ:lobZeZQYDz1
+!s100 D]c_5AVGTRzU]?KjgYki12
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-ISA^m5C8`zkzF3:DoionJL2
+IM[TPnUmH3OCId3BYII^nL0
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1727136857
+w1727411332
 8C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv
 FC:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv
 !i122 0
-L0 1 122
-Z6 OV;L;2020.1;71
+L0 1 262
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1727136939.000000
+!s108 1727412100.000000
 !s107 C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv|
 !i113 1
-Z8 o-sv -work work
-Z9 !s92 -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES
-Z10 tCvgOpt 0
+Z6 o-sv -work work
+Z7 !s92 -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES
+Z8 tCvgOpt 0
 n@a@l@u
+vColumnmaker
+R1
+Z9 !s110 1727412102
+!i10b 1
+!s100 O=d5HddN[YAlOgj?>@62j1
+R3
+IZiG3HP_@D29lb6DYmI3WT1
+R4
+S1
+R0
+w1727368608
+8C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv
+FC:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv
+!i122 2
+L0 1 10
+R5
+r1
+!s85 0
+31
+Z10 !s108 1727412101.000000
+!s107 C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv|
+!i113 1
+R6
+R7
+R8
+n@columnmaker
 vparallelALUs
 R1
 R2
 !i10b 1
-!s100 =i@iS8EMX7IaU6;d[6m4=3
+!s100 k6e;Nk7JF1?YP8JoCbA[;3
 R3
-IVPTXocBPJWG51T?zo`d]m0
+IL]Tl3dd^83jR^K?>?KCnB2
 R4
 S1
 R0
-w1727136854
+w1727412032
 8C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv
 FC:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv
 !i122 1
-L0 1 15
-R6
+L0 1 22
+R5
 r1
 !s85 0
 31
-R7
+R10
 !s107 C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv|
 !i113 1
+R6
+R7
 R8
-R9
-R10
 nparallel@a@l@us
 vparallelALUs_tb
 R1
-!s110 1727136940
+R9
 !i10b 1
-!s100 nN]>b[HlW^e07n4bZZRNQ0
+!s100 knMFMl6FI79NCe7z@;GPM0
 R3
-I=mcQo5a;XfVz>?H:ma@Xo3
+Il17JU4fY<1k2P_[i:gDd@1
 R4
 S1
 R0
-R5
+w1727402080
 8C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv
 FC:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv
-!i122 2
-L0 1 27
-R6
+!i122 3
+L0 1 32
+R5
 r1
 !s85 0
 31
-!s108 1727136940.000000
+!s108 1727412102.000000
 !s107 C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Bryan_Gomez/Documents/cpuAES|C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv|
 !i113 1
+R6
+R7
 R8
-R9
-R10
 nparallel@a@l@us_tb

@@ -47,6 +47,7 @@ vmap work rtl_work
 
 vlog -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES {C:/Users/Bryan_Gomez/Documents/cpuAES/ALU.sv}
 vlog -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES {C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs.sv}
+vlog -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES {C:/Users/Bryan_Gomez/Documents/cpuAES/Columnmaker.sv}
 
 vlog -sv -work work +incdir+C:/Users/Bryan_Gomez/Documents/cpuAES {C:/Users/Bryan_Gomez/Documents/cpuAES/parallelALUs_tb.sv}
 

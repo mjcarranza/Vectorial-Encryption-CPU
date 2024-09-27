@@ -1,5 +1,5 @@
 Flow report for CPU_AES
-Mon Sep 23 13:21:22 2024
+Thu Sep 26 22:29:28 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +-----------------------------+------------------------------------------------+
-; Flow Status                 ; Successful - Mon Sep 23 13:21:22 2024          ;
+; Flow Status                 ; Successful - Thu Sep 26 22:29:28 2024          ;
 ; Quartus Prime Version       ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name               ; CPU_AES                                        ;
 ; Top-level Entity Name       ; parallelALUs                                   ;
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/23/2024 13:20:47 ;
+; Start date & time ; 09/26/2024 22:28:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU_AES             ;
 +-------------------+---------------------+
@@ -74,10 +74,11 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+--------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name  ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+--------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 251756431378667.172711924712380        ; --            ; --           ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 251756431378667.172741133540136        ; --            ; --           ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ALU_tb                            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; PackingUnit_tb                    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; parallelALUs_tb                   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; Columnmaker_tb                    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --           ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --           ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --           ; eda_board_design_signal_integrity ;
@@ -89,12 +90,15 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TEST_BENCH_FILE                  ; ALU_tb.sv                              ; --            ; --           ; ALU_tb                            ;
 ; EDA_TEST_BENCH_FILE                  ; PackingUnit_tb.sv                      ; --            ; --           ; PackingUnit_tb                    ;
 ; EDA_TEST_BENCH_FILE                  ; parallelALUs_tb.sv                     ; --            ; --           ; parallelALUs_tb                   ;
+; EDA_TEST_BENCH_FILE                  ; Columnmaker_tb.sv                      ; --            ; --           ; Columnmaker_tb                    ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ALU_tb                                 ; --            ; --           ; ALU_tb                            ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; PackingUnit_tb                         ; --            ; --           ; PackingUnit_tb                    ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; parallelALUs_tb                        ; --            ; --           ; parallelALUs_tb                   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Columnmaker_tb                         ; --            ; --           ; Columnmaker_tb                    ;
 ; EDA_TEST_BENCH_NAME                  ; ALU_tb                                 ; --            ; --           ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; PackingUnit_tb                         ; --            ; --           ; eda_simulation                    ;
 ; EDA_TEST_BENCH_NAME                  ; parallelALUs_tb                        ; --            ; --           ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; Columnmaker_tb                         ; --            ; --           ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --           ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --           ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --           ; --                                ;
@@ -113,8 +117,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:38     ; 1.0                     ; 4807 MB             ; 00:00:37                           ;
-; Total                  ; 00:00:38     ; --                      ; --                  ; 00:00:37                           ;
+; Analysis & Elaboration ; 00:00:34     ; 1.0                     ; 4860 MB             ; 00:00:43                           ;
+; Total                  ; 00:00:34     ; --                      ; --                  ; 00:00:43                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
