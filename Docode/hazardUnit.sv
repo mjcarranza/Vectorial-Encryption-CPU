@@ -2,7 +2,7 @@ module hazardUnit(
     input logic clk,               // Señal de reloj
     input logic reset,             // Señal de reset
     input logic zeroFlag,          // Bandera de cero de la ALU que compara el contador
-    input logic [3:0] OpCode,      // Código de operación de la instrucción actual
+    input logic [4:0] OpCode,      // Código de operación de la instrucción actual
 
     output logic stopSignal,       // Señal para detener el pipeline
     output logic selectPCMux       // Señal para seleccionar el MUX para el PC
@@ -17,7 +17,7 @@ module hazardUnit(
         hazardDetected = 0;
 
         // Detectar hazard de control (branch con ceroFlag activo)
-        if (OpCode == 4'b0011 && zeroFlag) begin
+        if (OpCode == 5'b00010 && zeroFlag) begin
             hazardDetected = 1;
         end
     end

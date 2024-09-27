@@ -1,7 +1,7 @@
-module mux_WB( input logic [15:0] data0,
-					input logic [15:0] data1,
+module mux_WB( input logic [31:0] data0,
+					input logic [31:0] data1,
 					input logic select,
-					output logic [15:0] result);
+					output logic [31:0] result);
 
   always_comb begin
 	  case (select)

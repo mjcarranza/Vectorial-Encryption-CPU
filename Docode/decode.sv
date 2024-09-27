@@ -81,7 +81,7 @@ module decode( input logic clk, rst, regWriteWB, zeroFlag,
 										.regWrite(regWriteD), 
 										.memWrite(memWriteD), 
 										.branch(branchD),
-										.resultSrc(resultSrcD),
+										//.resultSrc(resultSrcD),
 										.aluControl(aluControlD)
 										);
 

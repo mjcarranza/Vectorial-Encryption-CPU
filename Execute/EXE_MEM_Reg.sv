@@ -1,12 +1,12 @@
 module EXE_MEM_Reg(
     input logic clk, reset, stop, 
-	 input logic regWrite_in, 											// 
-	 input logic memWrite_in, 						 
+	 input logic regWrite_in, updateCnt_in, 											// 
+	 input logic memWrite_in, select_in, 						 
 	 input logic [3:0] rd_in, resCompare,     					// 
 	 input logic [31:0] aluRes0, aluRes1, aluRes2, aluRes3, 	// 4 resultados de 4 alus de 32 bits cada uno
 	 
 	 // salidas del registro
-	 output logic regWrite_out, memWrite_out,
+	 output logic regWrite_out, memWrite_out, updateCnt_out, select_out,
 	 output logic [3:0] rd_out, resCompare_out,
 	 output logic [31:0] aluRes0_out, aluRes1_out, aluRes2_out, aluRes3_out
 	 
@@ -14,7 +14,7 @@ module EXE_MEM_Reg(
 );
 
     // Define registros internos para almacenar los valores entre etapas
-	 logic regWrite_reg, memWrite_reg;
+	 logic regWrite_reg, memWrite_reg, select_reg, updateCnt_reg;
 	 logic [3:0] rd_reg, resCmp;
 	 logic [15:0] aluRes0_reg, aluRes1_reg, aluRes2_reg, aluRes3_reg;
 	 
@@ -31,6 +31,8 @@ module EXE_MEM_Reg(
 				aluRes1_reg <= 32'b0;
 				aluRes2_reg <= 32'b0;
 				aluRes3_reg <= 32'b0;
+				select_reg <= 0;
+				updateCnt_reg <= 0;
 				
 				
         end else begin 		// Actualiza los registros
@@ -42,6 +44,8 @@ module EXE_MEM_Reg(
 				aluRes1_reg <= aluRes1;
 				aluRes2_reg <= aluRes2;
 				aluRes3_reg <= aluRes3;
+				select_reg <= select_in;
+				updateCnt_reg <= updateCnt_in;
 				
         end
         // Si stall está activo, los registros mantienen su valor actual
@@ -56,5 +60,8 @@ module EXE_MEM_Reg(
 	 assign aluRes1_out = aluRes1_reg;
 	 assign aluRes2_out = aluRes2_reg;	
 	 assign aluRes3_out = aluRes3_reg;
+	 assign select_out = select_reg;
+	 assign updateCnt_out = updateCnt_reg;
+
 
 endmodule

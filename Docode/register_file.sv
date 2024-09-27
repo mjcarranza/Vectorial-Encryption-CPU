@@ -1,12 +1,12 @@
 
-module register_file(input logic clk, rst, regWrite, 
-							input logic [3:0] A1, A2, A3, 
-							input logic [15:0] WD3,
-							output logic [15:0] RD1, RD2);
+module register_file(input logic clk, rst, regWrite, 	
+							input logic [3:0] A1, A2, A3, 	
+							input logic [31:0] WD3,				// dato a escribir
+							output logic [31:0] RD1, RD2);	
 		// # bits         // # registros			
-	logic [15:0] registers [15:0];
-	logic [15:0] RD1_temp = 16'h0;
-	logic [15:0] RD2_temp = 16'h0;
+	logic [31:0] registers [15:0];
+	logic [31:0] RD1_temp = 16'h0;
+	logic [31:0] RD2_temp = 16'h0;
 	
 	
 	// escritura se hace en flanco positivo
@@ -14,22 +14,22 @@ module register_file(input logic clk, rst, regWrite,
 	
 		if (rst) begin
 			// Reset behavior
-			registers[0]  <= 16'd0;
-			registers[1]  <= 16'd0;
-			registers[2]  <= 16'd0;
-			registers[3]  <= 16'd0;
-			registers[4]  <= 16'd0;
-			registers[5]  <= 16'd0;
-			registers[6]  <= 16'd0;
-			registers[7]  <= 16'd0;
-			registers[8]  <= 16'd0;
-			registers[9]  <= 16'd0;
-			registers[10] <= 16'd0;
-			registers[11] <= 16'd0;
-			registers[12] <= 16'd0; //  
-			registers[13] <= 16'd0; // registro de ubicación de pixeles (PU)
-			registers[14] <= 16'd0; // registro para la memoria (SP)
-			registers[15] <= 16'd0; //registro para el contador del programa (PC)
+			registers[0]  <= 32'd0;
+			registers[1]  <= 32'd0;
+			registers[2]  <= 32'd0;
+			registers[3]  <= 32'd0;
+			registers[4]  <= 32'd0;
+			registers[5]  <= 32'd0;
+			registers[6]  <= 32'd0;
+			registers[7]  <= 32'd0;
+			registers[8]  <= 32'd0;
+			registers[9]  <= 32'd0;
+			registers[10] <= 32'd0;
+			registers[11] <= 32'd0;
+			registers[12] <= 32'd0; //  
+			registers[13] <= 32'd0; // registro de ubicación de pixeles (PU)
+			registers[14] <= 32'd0; // registro para la memoria (SP)
+			registers[15] <= 32'd0; //registro para el contador del programa (PC)
 		end 
 		else begin
 		
