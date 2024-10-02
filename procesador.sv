@@ -1,5 +1,5 @@
 module procesador(
-			input logic clk, rst, updateCount// zeroFlag, //regWriteWB,
+			input logic clk, rst, //updateCount// zeroFlag, //regWriteWB,
 			//input logic [15:0] resCount, res0, res1, res2, res3, // entrada individual
 			//input logic [3:0] RdestW, // entrada general
 			
@@ -10,7 +10,7 @@ module procesador(
 			//output logic [15:0]instruction,
 			//output logic [3:0] RdE, RdM,
 			//output logic memWriteE, updateCnt //regWriteE
-			//output logic [2:0] aluControlE
+			output logic [128:0] salida
 			);
 
 	logic [15:0] pc, pc_out, Inst, inst, PCD, nextPC, hr0, hr1, hr2, hr3, hr4, hr5, hr6, hr7;
@@ -331,8 +331,8 @@ module procesador(
 					//address_b(),
 					.clock(clk),
 					.data_a(aluResE),
-					.wren_a(memWriteM)
-					//q_a()
+					.wren_a(memWriteM),
+					.q_a(salida)
 	);
 
 	

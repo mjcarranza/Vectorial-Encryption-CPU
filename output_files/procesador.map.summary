@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Fri Sep 27 12:15:07 2024
+Analysis & Elaboration Status : Successful - Fri Sep 27 19:30:42 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : procesador
-Top-level Entity Name : IF_ID_Reg
+Top-level Entity Name : ALU
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge

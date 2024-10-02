@@ -1,4 +1,4 @@
-module ALU_tb;
+module alu_tb;
 	
 	// Señales de entrada
 	logic [1:0] index;
@@ -32,7 +32,7 @@ initial begin
     SrcA = 32'h6649d86c;
     SrcB = 4;
     #10;
-	 
+	  
 	 // Test 3: Multiplicación (ALUcontrol = 10)
     ALUcontrol = 4'b0001;
     SrcA = 32'h1bc492bb;

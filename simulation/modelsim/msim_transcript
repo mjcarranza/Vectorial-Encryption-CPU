@@ -10,55 +10,56 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv}
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:15:15 on Sep 27,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv 
-# -- Compiling module IF_ID_Reg
+# Start time: 19:30:53 on Sep 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv 
+# -- Compiling module ALU
 # 
 # Top level modules:
-# 	IF_ID_Reg
-# End time: 12:15:16 on Sep 27,2024, Elapsed time: 0:00:01
+# 	ALU
+# End time: 19:30:53 on Sep 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv}
+# vlog -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench {C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:15:16 on Sep 27,2024
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv 
-# -- Compiling module IF_ID_Reg_tb
+# Start time: 19:30:53 on Sep 27,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench" C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv 
+# -- Compiling module alu_tb
 # 
 # Top level modules:
-# 	IF_ID_Reg_tb
-# End time: 12:15:16 on Sep 27,2024, Elapsed time: 0:00:00
+# 	alu_tb
+# End time: 19:30:53 on Sep 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  IF_ID_Reg_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" IF_ID_Reg_tb 
-# Start time: 12:15:16 on Sep 27,2024
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  alu_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" alu_tb 
+# Start time: 19:30:53 on Sep 27,2024
 # Loading sv_std.std
-# Loading work.IF_ID_Reg_tb
-# Loading work.IF_ID_Reg
+# Loading work.alu_tb
+# Loading work.ALU
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'ALU_test'.  Expected 9, found 8.
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/ALU_test File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 12
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (32) for port 'ALUcontrol'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv(4).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/ALU_test File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 12
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (2) for port 'SrcC'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv(7).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/ALU_test File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 12
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (8) for port 'column'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/ALU_test File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 12
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'lastData'. The port definition is at: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv(9).
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/ALU_test File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 12
+# ** Warning: (vsim-3722) C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv(12): [TFMPC] - Missing connection for port 'ALUresult'.
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: mario  Hostname: MJCLOQ  ProcessID: 29632
-#           Attempting to use alternate WLF file "./wlftyhwf6c".
+#           Attempting to use alternate WLF file "./wlftbhy47q".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftyhwf6c
+#           Using alternate file: ./wlftbhy47q
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# Prueba 1: Reset
-# Reset correcto: instruction_out = 000000000000
-# Prueba 2: Cargar instrucción
-# Carga correcta: instruction_out = 101010111100
-# Prueba 3: Detener con stop
-# Stop correcto: instruction_out = 101010111100
-# Prueba 4: Desactivar stop y cargar nueva instrucción
-# Carga después de stop correcta: instruction_out = 010001010110
-# Break key hit
-# Break in Module IF_ID_Reg_tb at C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv line 22
-# End time: 12:15:56 on Sep 27,2024, Elapsed time: 0:00:40
-# Errors: 0, Warnings: 2
+# End time: 19:32:13 on Sep 27,2024, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 8

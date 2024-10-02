@@ -9,57 +9,56 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/simulation/modelsim
-vIF_ID_Reg
+vALU
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1727460916
+Z2 !s110 1727487053
 !i10b 1
-!s100 VHSB<J1]F9H>:lbBD7m7O1
+!s100 kzX[>E5^Uoegh1^Xom3831
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I8o3Y`I?PIDoX1KhmjIPAR0
+Ic8k?fnLJc4lA4SoD4YJk62
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1727157606
-8C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv
-FC:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv
+w1727416721
+8C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv
+FC:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv
 !i122 0
-L0 1 26
-Z6 OV;L;2020.1;71
+L0 1 261
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1727460915.000000
-!s107 C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch|C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch/IF_ID_Reg.sv|
+Z6 !s108 1727487053.000000
+!s107 C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute|C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv|
 !i113 1
 Z7 o-sv -work work
-!s92 -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/InstructionFetch
+!s92 -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute
 Z8 tCvgOpt 0
-n@i@f_@i@d_@reg
-vIF_ID_Reg_tb
+n@a@l@u
+valu_tb
 R1
 R2
 !i10b 1
-!s100 lA?UOZMif]LD;=7WQARC^3
+!s100 iah_XMZJ8QK^g0L5CW2XB1
 R3
-IBg2]nJUTmY[2YT05Kl;D83
+IS=fADkT2]<@o]`4jcV1GZ1
 R4
 S1
 R0
-R5
-8C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv
-FC:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv
+w1727487031
+8C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv
+FC:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv
 !i122 1
-L0 3 72
-R6
+L0 1 51
+R5
 r1
 !s85 0
 31
-!s108 1727460916.000000
-!s107 C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench|C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/IF_ID_Reg_tb.sv|
+R6
+!s107 C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench|C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv|
 !i113 1
 R7
 !s92 -sv -work work +incdir+C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench
 R8
-n@i@f_@i@d_@reg_tb

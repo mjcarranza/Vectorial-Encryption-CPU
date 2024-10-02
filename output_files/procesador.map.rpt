@@ -1,5 +1,5 @@
 Analysis & Elaboration report for procesador
-Fri Sep 27 12:15:07 2024
+Fri Sep 27 19:30:42 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,10 +38,10 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Fri Sep 27 12:15:07 2024       ;
+; Analysis & Elaboration Status ; Successful - Fri Sep 27 19:30:42 2024       ;
 ; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                 ; procesador                                  ;
-; Top-level Entity Name         ; IF_ID_Reg                                   ;
+; Top-level Entity Name         ; ALU                                         ;
 ; Family                        ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
 ; Total registers               ; N/A until Partition Merge                   ;
@@ -75,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; IF_ID_Reg          ; procesador         ;
+; Top-level entity name                                                           ; ALU                ; procesador         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -162,7 +162,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 27 12:14:59 2024
+    Info: Processing started: Fri Sep 27 19:30:33 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off procesador -c procesador --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -250,7 +250,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file testben
 Info (12021): Found 1 design units, including 1 entities, in source file memory/datamemory.v
     Info (12023): Found entity 1: DataMemory File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Memory/DataMemory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file testbench/alu_tb.sv
-    Info (12023): Found entity 1: ALU_tb File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 1
+    Info (12023): Found entity 1: alu_tb File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/alu_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file testbench/mux_wb_tb.sv
     Info (12023): Found entity 1: mux_WB_tb File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/mux_WB_tb.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file docode/decodesignalreg.sv
@@ -285,6 +285,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file execute
     Info (12023): Found entity 1: parallelALUs File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/parallelALUs.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file execute/parallelalus_tb.sv
     Info (12023): Found entity 1: parallelALUs_tb File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/parallelALUs_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench/exe_mem_reg_tb.sv
+    Info (12023): Found entity 1: EXE_MEM_Reg_tb File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/testbench/EXE_MEM_Reg_tb.sv Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at procesador.sv(57): created implicit net for "pcsuma" File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 57
 Warning (10236): Verilog HDL Implicit Net warning at procesador.sv(58): created implicit net for "instruction" File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 58
 Warning (10236): Verilog HDL Implicit Net warning at procesador.sv(67): created implicit net for "zeroFlag" File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 67
@@ -308,13 +310,59 @@ Critical Warning (10846): Verilog HDL Instantiation warning at procesador.sv(363
 Critical Warning (10846): Verilog HDL Instantiation warning at procesador.sv(368): instance has no name File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 368
 Critical Warning (10846): Verilog HDL Instantiation warning at procesador.sv(373): instance has no name File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 373
 Critical Warning (10846): Verilog HDL Instantiation warning at procesador.sv(378): instance has no name File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/procesador.sv Line: 378
-Info (12127): Elaborating entity "IF_ID_Reg" for the top level hierarchy
+Info (12127): Elaborating entity "ALU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ALU.sv(19): object "mix_columns_matrix" assigned a value but never read File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 19
+Warning (10230): Verilog HDL assignment warning at ALU.sv(249): truncated value with size 32 to match size of target (8) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 249
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(159): inferring latch(es) for variable "tempA", which holds its previous value in one or more paths through the always construct File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(159): inferring latch(es) for variable "tempB", which holds its previous value in one or more paths through the always construct File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(159): inferring latch(es) for variable "tempC", which holds its previous value in one or more paths through the always construct File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Warning (10240): Verilog HDL Always Construct warning at ALU.sv(159): inferring latch(es) for variable "tempD", which holds its previous value in one or more paths through the always construct File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[0]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[1]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[2]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[3]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[4]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[5]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[6]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempD[7]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[0]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[1]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[2]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[3]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[4]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[5]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[6]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempC[7]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[0]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[1]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[2]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[3]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[4]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[5]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[6]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempB[7]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[0]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[1]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[2]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[3]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[4]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[5]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[6]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10041): Inferred latch for "tempA[7]" at ALU.sv(159) File: C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/Execute/ALU.sv Line: 159
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mix_columns_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime3" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime14" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime13" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime11" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "xtime9" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sbox" into its bus
 Info (144001): Generated suppressed messages file C:/Users/mario/Documents/GitHub/Vectorial-Encryption-CPU/output_files/procesador.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Fri Sep 27 12:15:07 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:07
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Fri Sep 27 19:30:42 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +--------------------------------------------+
